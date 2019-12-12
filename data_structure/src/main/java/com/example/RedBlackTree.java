@@ -1,6 +1,7 @@
 package com.example;
 
 import com.sun.org.apache.regexp.internal.RE;
+import jdk.nashorn.internal.ir.BinaryNode;
 
 /**
  * <p><b>Description:</b>  TODO
@@ -95,23 +96,27 @@ public class RedBlackTree<T extends Comparable> {
 
 
     /**
-     * 左旋
-     *
-     * @param node
+     * 单次右旋
+     * @param k1
      * @return
      */
-    private RedBlackNode rotateWithLeftChild(RedBlackNode node) {
-        return node;
+    private RedBlackNode rotateWithRightChild(RedBlackNode k1) {
+        RedBlackNode k2 = k1.right;
+        k1.right = k2.left;
+        k2.left = k1;
+        return k2;
     }
 
     /**
-     * 右旋
-     *
-     * @param node
+     * 单次左旋
+     * @param k2
      * @return
      */
-    private RedBlackNode rotateWithRightChild(RedBlackNode node) {
-        return node;
+    private RedBlackNode rotateWithLeftChild(RedBlackNode k2) {
+        RedBlackNode k1 = k2.left;
+        k2.left = k1.right;
+        k1.right =k2;
+        return k1;
     }
 
 

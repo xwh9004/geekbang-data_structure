@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 /**
- * <p><b>Description:</b>  TODO
+ * <p><b>Description:</b>  简单的实现
  * <p><b>Company:</b>
  *
  * @author created by Jesse Hsu at 14:49 on 2019/12/2
@@ -13,14 +13,14 @@ import java.util.Queue;
  */
 public class BinaryTree<E> {
 
-    private Node root;
+    private BinaryNode root;
 
     public BinaryTree() {
 
     }
 
     /**
-     * 插入规则 left<=root<right
+     * 插入规则 left<root<right
      *
      * @param item
      */
@@ -32,9 +32,9 @@ public class BinaryTree<E> {
      * @param root
      * @param item
      */
-    private Node addChild(Node root, int item) {
+    private BinaryNode addChild(BinaryNode root, int item) {
         if (root == null) {
-            Node node = new Node(item);
+            BinaryNode node = new BinaryNode(item);
             return node;
         }
         if (item > root.item) {
@@ -54,7 +54,7 @@ public class BinaryTree<E> {
         System.out.println();
     }
 
-    private void doPostOrder(Node root) {
+    private void doPostOrder(BinaryNode root) {
         if (root == null) {
             return;
         }
@@ -72,7 +72,7 @@ public class BinaryTree<E> {
         System.out.println();
     }
 
-    private void doInOrder(Node root) {
+    private void doInOrder(BinaryNode root) {
         if (root == null) {
             return;
         }
@@ -90,7 +90,7 @@ public class BinaryTree<E> {
         System.out.println();
     }
 
-    private void doPreOrder(Node root) {
+    private void doPreOrder(BinaryNode root) {
         if (root == null) {
             return;
         }
@@ -105,22 +105,23 @@ public class BinaryTree<E> {
      * 递归遍历
      * @return
      */
-    public int getTreeDepthByRecursive(){
-        return  doGetTreeDepthByRecursive(root);
+    public int height(){
+        return  height(root);
     }
+
 
     /**
      * 递归计算左右子树高度
      * @param root
      * @return
      */
-    private int doGetTreeDepthByRecursive(Node root){
+    private int height(BinaryNode root){
         if(root==null){
             return 0;
+        }else{
+            return 1+Math.max(height(root.left),height(root.right));
         }
-        int leftDepth =  doGetTreeDepthByRecursive(root.left)+1;
-        int rightDepth =  doGetTreeDepthByRecursive(root.right)+1;
-        return Math.max(leftDepth,rightDepth);
+       
     }
 
     /**
@@ -132,15 +133,15 @@ public class BinaryTree<E> {
         queue.add(root);
         queue.add(root);
         int level =0;
-        Node head = root;
+        BinaryNode head = root;
         while (queue.size()!=0){
-            Node node = (Node)queue.remove();
+            BinaryNode node = (BinaryNode)queue.remove();
             if(node==head){
                     if(queue.size()==0){
                         break;
                     }
                     level++;
-                    head =(Node)queue.remove();
+                    head =(BinaryNode)queue.remove();
                     queue.add(head);
                     node =head;
             }
@@ -173,8 +174,7 @@ public class BinaryTree<E> {
         if(queue.size()==0){
             return;
         }
-
-       Node node = (Node)queue.remove();
+        BinaryNode node = (BinaryNode)queue.remove();
         System.out.print(node.item+" ");
         if(node.left!=null){
             queue.add(node.left);
@@ -185,12 +185,12 @@ public class BinaryTree<E> {
         doLevelOrder(queue);
     }
 
-    private class Node {
-        public Node left;
-        public Node right;
+    private class BinaryNode {
+        public BinaryNode left;
+        public BinaryNode right;
         public int item;
 
-        public Node(int item) {
+        public BinaryNode(int item) {
             this.item = item;
         }
 
@@ -212,8 +212,11 @@ public class BinaryTree<E> {
         tree.add(7);
         tree.add(13);
         tree.add(9);
-        System.out.println(tree.getTreeDepthByRecursive());
+        System.out.println(tree.height());
         System.out.println(tree.getDepthBy());
+        String s= "Example";
+        s=s+1;
+//        int i = s.length();
     }
 
 
