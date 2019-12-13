@@ -37,14 +37,14 @@ public class BinarySearchTree<T extends Comparable> {
 
     public T findMin() {
         if (isEmpty()) {
-            throw new UnderflowException();
+            throw new UnderflowException("empty tree");
         }
         return (T) findMin(root).element;
     }
 
     public T findMax() {
         if (isEmpty()) {
-            throw new UnderflowException();
+            throw new UnderflowException("empty tree");
         }
         return (T) findMax(root).element;
     }

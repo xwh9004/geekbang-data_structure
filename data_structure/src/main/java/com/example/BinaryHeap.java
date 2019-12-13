@@ -35,6 +35,9 @@ public class BinaryHeap<T extends Comparable> {
         this.items = items;
         capacity = items.length;
     }
+    public boolean isEmpty(){
+        return currentSize == 0;
+    }
 
     public void insert(T item) {
 
@@ -49,10 +52,26 @@ public class BinaryHeap<T extends Comparable> {
         items[hole] = item;
     }
 
+    /**
+     *
+     * @return
+     */
+    public T findMin(){
+        if(isEmpty()){
+            throw new UnderflowException("empty heap");
+        }
+        return (T)items[1];
+    }
+
+    /**
+     * 删除最小元素
+     * @return
+     */
     public T deleteMin(){
-        T min =(T)items[1];
+        T min =findMin();
         percolateDown(1);
         items[1] = items[currentSize--];
+        percolateDown(1);
         return min;
     }
 
@@ -63,7 +82,6 @@ public class BinaryHeap<T extends Comparable> {
     public void percolateDown(int hole) {
         //最后一个元素
         T tmp = (T) items[hole];
-
         int child ;
         for ( ; hole * 2 < currentSize;hole=child ) {
             child = hole*2;
@@ -74,10 +92,22 @@ public class BinaryHeap<T extends Comparable> {
             if(((T)items[child]).compareTo(tmp)<0){
                 items[hole]=items[child];
             }else{
+                //找到最后一个元素的位置了
                 break;
             }
         }
         items[hole] = tmp;
+    }
 
+    public void printHeap(){
+        StringBuilder sb = new StringBuilder();
+        if(isEmpty()){
+            sb.append("empty heap");
+        }
+
+        for (int i =1;i<=currentSize;i++){
+            sb.append(items[i].toString() + " ");
+        }
+        System.out.println(sb.toString());
     }
 }

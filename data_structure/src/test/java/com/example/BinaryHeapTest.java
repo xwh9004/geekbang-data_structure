@@ -14,14 +14,32 @@ import org.junit.Test;
 public class BinaryHeapTest {
 
     private BinaryHeap<Integer> heap;
+
     @Before
-    public void before(){
+    public void before() {
         heap = new BinaryHeap<>();
     }
+
     @Test
-    public void insert(){
+    public void insert() {
         heap.insert(13);
-        heap.insert(12);
+        heap.insert(14);
+        heap.insert(16);
+        heap.insert(19);
+        heap.insert(21);
+        heap.insert(19);
+        heap.insert(68);
+        heap.insert(65);
+        heap.insert(26);
+        heap.insert(32);
+        heap.insert(22);
+        heap.printHeap();
+    }
+
+    @Test
+    public void deleteMin() {
+        insert();
+        heap.deleteMin();
         heap.printHeap();
     }
 

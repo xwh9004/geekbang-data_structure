@@ -9,6 +9,11 @@ package com.example;
  * @classNmae UnderflowException
  */
 public class UnderflowException extends RuntimeException {
+
+
+    public UnderflowException(String message){
+        super(message);
+    }
     @Override
     public String getMessage() {
         return super.getMessage();
