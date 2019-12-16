@@ -1,5 +1,6 @@
 package ch11;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +12,10 @@ import java.util.List;
  * @version V0.1
  * @classNmae Button
  */
-public class Button {
+public abstract class Button {
     private List<ButtonListener> listeners;
 
+    abstract void onPress();
     public Button() {
         this.listeners = new ArrayList<ButtonListener>();
     }
@@ -23,8 +25,10 @@ public class Button {
     }
 
     public void press() {
+        onPress();
        for (ButtonListener listener:listeners){
            listener.buttonPressed();
        }
     }
+
 }

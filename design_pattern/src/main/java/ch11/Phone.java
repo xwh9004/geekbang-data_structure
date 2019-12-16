@@ -17,10 +17,10 @@ public class Phone {
         dialer = new Dialer();
         digitButtons = new Button[10];
         for (int i = 0; i < digitButtons.length; i++) {
-            digitButtons[i] = new Button();
+            digitButtons[i] = new DigitButton();
             digitButtons[i].addListener(new DigitButtonDialerAdepter(i,dialer));
         }
-        sendButton = new Button();
+        sendButton = new SendButton();
         sendButton.addListener(new SendButtonDialerAdepter(dialer));
     }
 
