@@ -1,5 +1,6 @@
 package com.example;
 
+import javax.xml.transform.sax.SAXSource;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
@@ -69,6 +70,15 @@ public class BinaryTree<E> {
     public void inOrder() {
         System.out.println("in order");
         this.doInOrder(root);
+        System.out.println();
+    }
+
+    /**
+     * 中序遍历
+     */
+    public void inOrder_composite() {
+        System.out.println("in order");
+        root.inOrder();
         System.out.println();
     }
 
@@ -190,6 +200,20 @@ public class BinaryTree<E> {
         public BinaryNode right;
         public int item;
 
+        /**
+         * 中序遍历
+         */
+        public void inOrder(){
+
+            if(left!=null){
+                left.inOrder();
+            }
+            System.out.print(item+ " ");
+            if(right!=null){
+               right.inOrder();
+            }
+
+        }
         public BinaryNode(int item) {
             this.item = item;
         }
@@ -212,11 +236,8 @@ public class BinaryTree<E> {
         tree.add(7);
         tree.add(13);
         tree.add(9);
-        System.out.println(tree.height());
-        System.out.println(tree.getDepthBy());
-        String s= "Example";
-        s=s+1;
-//        int i = s.length();
+        tree.inOrder();
+        tree.inOrder_composite();
     }
 
 
