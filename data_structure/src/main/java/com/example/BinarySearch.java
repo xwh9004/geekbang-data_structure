@@ -112,7 +112,7 @@ public class BinarySearch {
 
     public static void main(String[] args) {
        int[] arr = new int[]{1,7,7,7,7,7,7,7,8,13,13,18};
-       System.out.println(firstIndexOf(arr,19));
+       System.out.println(firstIndexOf(arr,4));
        System.out.println(lastIndexOf(arr,19));
     }
 }
