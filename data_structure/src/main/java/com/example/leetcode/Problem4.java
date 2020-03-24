@@ -1,5 +1,7 @@
 package com.example.leetcode;
 
+import java.util.ArrayList;
+
 /**
  * <p><b>Description:</b>
  * 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
@@ -113,5 +115,10 @@ public class Problem4 {
         int[] nums2 = {1, 2};
         System.out.println(findMedianSortedArrays(nums1, nums2));
         System.out.println(findMedianSortedArrays_1(nums1, nums2));
+//        var list = new ArrayList();
+//        list.add("ss");
+//        System.out.println(list.size());
+//        var str = "ss";
+//        System.out.println(str.length());
     }
 }

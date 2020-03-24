@@ -1,15 +1,13 @@
-package com.example;
+package com.example.ch05;
 
 /**
  * <p><b>Description:</b>  TODO
  * <p><b>Company:</b>
  *
- * @author created by Jesse Hsu at 10:13 on 2020/1/15
+ * @author created by Jesse Hsu at 14:04 on 2020/1/15
  * @version V0.1
- * @classNmae Passenger
+ * @classNmae Pass
  */
-
-// Run with: java -XX:CompileCommand='dontinline,*.passThroughImmigration' Passenger
 public abstract class Passenger {
     abstract void passThroughImmigration();
     public static void main(String[] args) {
@@ -33,3 +31,4 @@ class ChinesePassenger extends Passenger {
 class ForeignerPassenger extends Passenger {
     @Override void passThroughImmigration() {}
 }
+

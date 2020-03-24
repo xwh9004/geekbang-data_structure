@@ -11,14 +11,9 @@
     </parent>
 
 
-    <artifactId>data_structrue</artifactId>
+    <artifactId>common_mistakes</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
+
 
     <build>
         <plugins>
