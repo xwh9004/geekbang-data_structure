@@ -1,9 +1,6 @@
 package com.example.concurrent;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * <p><b>Description:</b>
@@ -26,6 +23,22 @@ public class ThreadPoolExecutorDemo {
         // 获取计算结
         Integer result = (Integer) futureTask.get();
         System.out.println(result);
+
+         es =  Executors.newSingleThreadExecutor();
+
+
+        es.execute(()->{
+            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+            System.out.println("a job");
+            //如何抛异常，这会重新创建新线程
+            throw new RuntimeException("test exception");
+
+        });
+        TimeUnit.SECONDS.sleep(2);
+        es.execute(()->{
+            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+            System.out.println("other job...");
+        });
     }
 }
 
