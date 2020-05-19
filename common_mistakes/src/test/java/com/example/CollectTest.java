@@ -1,7 +1,7 @@
 package com.example;
 
-import com.example.entity.Order;
-import com.example.entity.OrderItem;
+import com.example.common.mistakes.entity.Order;
+import com.example.common.mistakes.entity.OrderItem;
 import org.junit.Before;
 import org.junit.Test;
 
