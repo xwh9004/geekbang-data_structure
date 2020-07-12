@@ -25,6 +25,7 @@
         <module>dubbo_demo_consumer</module>
         <module>dubbo_demo_provider</module>
         <module>java_concurrent</module>
+        <module>thinking_in_spring</module>
     </modules>
 
 
