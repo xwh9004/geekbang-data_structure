@@ -11,7 +11,7 @@
     </parent>
 
 
-    <artifactId>data_structrue</artifactId>
+    <artifactId>data_structure</artifactId>
 
     <dependencies>
         <dependency>
