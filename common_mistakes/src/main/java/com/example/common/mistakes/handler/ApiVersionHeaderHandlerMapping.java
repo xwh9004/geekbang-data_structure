@@ -24,8 +24,6 @@ import java.util.stream.Collectors;
  * @classNmae ApiVersionHeaderHandlerMapping
  */
 public class ApiVersionHeaderHandlerMapping extends RequestMappingHandlerMapping {
-
-
     @Override
     protected boolean isHandler(Class beanType) {
         return AnnotatedElementUtils.hasAnnotation(beanType, Controller.class);

@@ -1,9 +1,7 @@
 package com.example.concurrent;
 
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 /**
  * <p><b>Description:</b>
@@ -16,12 +14,60 @@ import java.util.concurrent.Executors;
  */
 public class CountDownLatchDemo {
 
-    // 创建2个线程的线程池
+    public static void main(String[] args) throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(10);
+        Player[] players = new Player[10];
+        for (int i=0;i<10;i++){
+            players[i] = new Player(i,latch);
+        }
+        for (int i=0;i<10;i++){
+            players[i].run();
+        }
+        latch.await();
+        System.out.println("all player finished!");
+    }
 
-    Executor executor = Executors.newFixedThreadPool(2);
 
 
-    CountDownLatch latch = new CountDownLatch(2);
+}
 
-    CyclicBarrier barrier = new CyclicBarrier(2);
+class Player {
+
+
+    CountDownLatch latch;
+
+    int no;   //名字
+
+    int score;
+
+    Player(int no,CountDownLatch latch){
+       this.no = no;
+       this.latch = latch;
+    }
+
+
+    public void run() {
+        new Thread(){
+            @Override
+            public void run() {
+                Random random = new Random();
+                score= random.nextInt(1000);
+                try {
+                    Thread.sleep(score);
+                    printScore();
+                    latch.countDown();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void printScore(){
+        System.out.println("player " + no + " score: " +score);
+    }
 }

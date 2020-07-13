@@ -25,6 +25,8 @@
         <module>dubbo_demo_consumer</module>
         <module>dubbo_demo_provider</module>
         <module>java_concurrent</module>
+        <module>tomcat_web</module>
+        <module>annotation-processor</module>
     </modules>
 
 
@@ -55,6 +57,17 @@
                 <artifactId>spring-boot-autoconfigure</artifactId>
                 <version>2.1.6.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>2.1.6.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>2.1.6.RELEASE</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -69,6 +82,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
         </dependency>
     </dependencies>
 </project>
