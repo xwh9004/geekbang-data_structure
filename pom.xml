@@ -27,6 +27,7 @@
         <module>java_concurrent</module>
         <module>tomcat_web</module>
         <module>annotation-processor</module>
+        <module>thinking_in_spring</module>
     </modules>
 
 
