@@ -1,8 +1,9 @@
-package com.eample.spring.ioc.overview.dependency.injection;
+package com.example.spring.ioc.overview.dependency.injection;
 
-import com.eample.spring.ioc.overview.dependency.annotation.Super;
-import com.eample.spring.ioc.overview.dependency.domin.User;
-import com.eample.spring.ioc.overview.dependency.repository.UserRepository;
+import com.example.spring.ioc.overview.annotation.Super;
+import com.example.spring.ioc.overview.domin.AbnormalBean;
+import com.example.spring.ioc.overview.domin.User;
+import com.example.spring.ioc.overview.repository.UserRepository;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.ObjectFactory;
@@ -15,8 +16,10 @@ public class DependencyInjectionDemo {
     public static void main(String[] args) throws Exception {
 
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:META-INF/dependency-injection-context.xml");
-
-        instanceLookup(beanFactory);
+        AbnormalBean mybean =  beanFactory.getBean(AbnormalBean.class);
+        AbnormalBean mybean1 =  beanFactory.getBean(AbnormalBean.class);
+        System.out.println(mybean.toString());
+//        instanceLookup(beanFactory);
 
     }
 

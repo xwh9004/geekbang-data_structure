@@ -1,4 +1,4 @@
-package com.eample.spring.ioc.overview.dependency.domin;
+package com.example.spring.ioc.overview.domin;
 
 public class User {
 

@@ -12,12 +12,13 @@
     <artifactId>thinking_in_spring</artifactId>
 
     <properties>
-        <spring.version>5.2.2.RELEASE</spring.version>
+        <spring.version>5.2.5.RELEASE</spring.version>
     </properties>
 
     <packaging>pom</packaging>
     <modules>
         <module>ioc_container_overview</module>
+        <module>spring_bean</module>
     </modules>
 
     <dependencyManagement>

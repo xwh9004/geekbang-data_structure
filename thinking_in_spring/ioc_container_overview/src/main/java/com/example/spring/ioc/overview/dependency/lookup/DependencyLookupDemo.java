@@ -1,7 +1,7 @@
-package com.eample.spring.ioc.overview.dependency.lookup;
+package com.example.spring.ioc.overview.dependency.lookup;
 
-import com.eample.spring.ioc.overview.dependency.annotation.Super;
-import com.eample.spring.ioc.overview.dependency.domin.User;
+import com.example.spring.ioc.overview.annotation.Super;
+import com.example.spring.ioc.overview.domin.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.ObjectFactory;

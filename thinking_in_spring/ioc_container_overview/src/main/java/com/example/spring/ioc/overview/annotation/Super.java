@@ -1,4 +1,4 @@
-package com.eample.spring.ioc.overview.dependency.annotation;
+package com.example.spring.ioc.overview.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

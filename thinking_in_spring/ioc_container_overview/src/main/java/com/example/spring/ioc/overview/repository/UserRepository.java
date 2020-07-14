@@ -1,6 +1,6 @@
-package com.eample.spring.ioc.overview.dependency.repository;
+package com.example.spring.ioc.overview.repository;
 
-import com.eample.spring.ioc.overview.dependency.domin.User;
+import com.example.spring.ioc.overview.domin.User;
 
 import java.util.Collection;
 

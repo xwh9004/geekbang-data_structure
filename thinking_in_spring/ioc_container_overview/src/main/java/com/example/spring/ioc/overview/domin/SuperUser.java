@@ -1,6 +1,6 @@
-package com.eample.spring.ioc.overview.dependency.domin;
+package com.example.spring.ioc.overview.domin;
 
-import com.eample.spring.ioc.overview.dependency.annotation.Super;
+import com.example.spring.ioc.overview.annotation.Super;
 
 @Super
 public class SuperUser extends User {
