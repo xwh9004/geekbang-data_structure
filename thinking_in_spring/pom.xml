@@ -18,6 +18,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>ioc_container_overview</module>
+        <module>spring_bean</module>
     </modules>
 
     <dependencyManagement>
