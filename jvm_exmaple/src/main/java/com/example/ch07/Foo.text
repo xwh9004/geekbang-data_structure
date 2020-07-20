@@ -1,0 +1,31 @@
+Compiled from "Foo.java"
+public class com.example.ch07.Foo {
+  public com.example.ch07.Foo();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void foo(java.lang.Object);
+    Code:
+       0: aload_1
+       1: dup
+       2: astore_2
+       3: monitorenter
+       4: aload_1
+       5: invokevirtual #2                  // Method java/lang/Object.hashCode:()I
+       8: pop
+       9: aload_2
+      10: monitorexit
+      11: goto          19
+      14: astore_3
+      15: aload_2
+      16: monitorexit
+      17: aload_3
+      18: athrow
+      19: return
+    Exception table:
+       from    to  target type
+           4    11    14   any
+          14    17    14   any
+}

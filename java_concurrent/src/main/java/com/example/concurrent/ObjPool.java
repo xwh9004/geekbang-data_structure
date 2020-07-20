@@ -1,6 +1,5 @@
 package com.example.concurrent;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.Semaphore;
@@ -26,7 +25,7 @@ public class ObjPool<T, R> {
     ObjPool(int size, T t) {
         //此处不能使用ArrayList  因为ArrayList add ,remove方法非线程安全
         //应使用Vector
-        pool = new Vector<>() {
+        pool = new Vector<T>() {
         };
         for (int i = 0; i < size; i++) {
             pool.add(t);

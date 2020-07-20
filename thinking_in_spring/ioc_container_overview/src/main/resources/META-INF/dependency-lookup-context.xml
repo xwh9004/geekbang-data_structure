@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="user1" class="com.eample.spring.ioc.overview.dependency.domin.User">
+    <bean id="user1" class="com.example.spring.ioc.overview.domin.User">
         <property name="id" value="1"></property>
         <property name="name" value="Jesse"></property>
     </bean>
-    <bean id="superUser" class="com.eample.spring.ioc.overview.dependency.domin.SuperUser" parent="user1" primary="true">
+    <bean id="superUser" class="com.example.spring.ioc.overview.domin.SuperUser" parent="user1" primary="true">
         <property name="address" value="jiangxi"></property>
     </bean>
 

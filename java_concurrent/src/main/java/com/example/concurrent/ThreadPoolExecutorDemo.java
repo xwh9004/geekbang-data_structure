@@ -24,21 +24,59 @@ public class ThreadPoolExecutorDemo {
         Integer result = (Integer) futureTask.get();
         System.out.println(result);
 
-         es =  Executors.newSingleThreadExecutor();
+//         es =  Executors.newSingleThreadExecutor();
+//
+//
+//        es.execute(()->{
+//            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+//            System.out.println("a job");
+//            //如何抛异常，这会重新创建新线程
+//            throw new RuntimeException("test exception");
+//
+//        });
+//        TimeUnit.SECONDS.sleep(2);
+//        es.execute(()->{
+//            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+//            System.out.println("other job...");
+//        });
+//
+         es =Executors.newFixedThreadPool(2);
 
 
         es.execute(()->{
             System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
-            System.out.println("a job");
+            System.out.println("a job1...");
             //如何抛异常，这会重新创建新线程
-            throw new RuntimeException("test exception");
+//            throw new RuntimeException("test exception");
 
+        });
+//        TimeUnit.SECONDS.sleep(2);
+        es.execute(()->{
+            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+            System.out.println("a job2...");
+        });
+//        TimeUnit.SECONDS.sleep(2);
+
+        es.execute(()->{
+            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+            System.out.println("a job3...");
         });
         TimeUnit.SECONDS.sleep(2);
         es.execute(()->{
             System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
-            System.out.println("other job...");
+            System.out.println("other job4...");
+            //如何抛异常，这会重新创建新线程
+            throw new RuntimeException("test exception");
         });
+        es.execute(()->{
+            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+            System.out.println("other job5...");
+        });
+        es.execute(()->{
+            System.out.println(Thread.currentThread().getName()+":"+Thread.currentThread().getId());
+            System.out.println("other job6...");
+        });
+
     }
 }
 

@@ -10,11 +10,11 @@
     <!--导入依赖文件-->
     <!-- autowire byType 获得的bean集合的顺序与bean定义的顺序一致 -->
     <import resource="dependency-lookup-context.xml"></import>
-    <bean id="userRepository" class="com.eample.spring.ioc.overview.dependency.repository.UserRepository" autowire="byType">
+    <bean id="userRepository" class="com.example.spring.ioc.overview.repository.UserRepository" autowire="byType">
 
 
     </bean>
-   <!-- <bean id="userRepository" class="com.eample.spring.ioc.overview.dependency.repository.UserRepository">
+   <!-- <bean id="userRepository" class="UserRepository">
         <property name="users">
             <util:list>
                 <ref bean="superUser"></ref>
@@ -23,4 +23,8 @@
         </property>
 
     </bean>-->
+   <bean class="com.example.spring.ioc.overview.domin.MyBean"></bean>
+
+
+
 </beans>

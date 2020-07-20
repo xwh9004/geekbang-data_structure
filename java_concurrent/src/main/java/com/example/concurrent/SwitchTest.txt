@@ -16,8 +16,10 @@ public class com.example.concurrent.SwitchTest {
        6: istore        4
        8: aload_3
        9: invokevirtual #3                  // Method java/lang/String.hashCode:()I
-      12: lookupswitch  { // 2
-                    65: 40
+      12: lookupswitch  { // 2
+
+                    65: 40
+
                     66: 55
                default: 67
           }
@@ -35,8 +37,10 @@ public class com.example.concurrent.SwitchTest {
       64: iconst_1
       65: istore        4
       67: iload         4
-      69: lookupswitch  { // 2
-                     0: 96
+      69: lookupswitch  { // 2
+
+                     0: 96
+
                      1: 102
                default: 108
           }
