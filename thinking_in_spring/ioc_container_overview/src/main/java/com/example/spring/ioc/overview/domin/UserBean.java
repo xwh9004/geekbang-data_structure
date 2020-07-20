@@ -9,7 +9,7 @@ package com.example.spring.ioc.overview.domin;
  * @version V0.1
  * @classNmae UseBean
  */
-public class UseBean {
+public class UserBean {
     private AbnormalBean bean;
 
     public void setBean(AbnormalBean bean) {
