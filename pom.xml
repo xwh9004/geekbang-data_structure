@@ -28,6 +28,7 @@
         <module>tomcat_web</module>
         <module>annotation-processor</module>
         <module>thinking_in_spring</module>
+        <module>java-train-camp</module>
     </modules>
 
 
