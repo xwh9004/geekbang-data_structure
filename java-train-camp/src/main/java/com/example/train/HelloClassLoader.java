@@ -26,6 +26,8 @@ public class HelloClassLoader extends ClassLoader{
             Object hello = classLoader.findClass(xlass).newInstance();
             Method method = hello.getClass().getMethod("hello");
             method.invoke(hello);
+//            MethodHandle methodHandle =MethodHandles.lookup().bind(hello,"hello", MethodType.methodType(Voi));
+//            methodHandle.invoke();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }catch (InstantiationException e) {
@@ -36,6 +38,8 @@ public class HelloClassLoader extends ClassLoader{
             e.printStackTrace();
         } catch (InvocationTargetException e) {
             e.printStackTrace();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
         }
     }
 
