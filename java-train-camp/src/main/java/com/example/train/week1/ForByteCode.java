@@ -1,4 +1,4 @@
-package com.example.train;
+package com.example.train.week1;
 
 import java.util.Arrays;
 
