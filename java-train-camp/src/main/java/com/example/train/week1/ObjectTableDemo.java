@@ -26,29 +26,35 @@ public class ObjectTableDemo {
 
 
     public static void main(String[] args) {
-        A a = new A();
-        System.out.println("-----------对象 A-------------------");
-        printObjectTable(a);
-        A a1 = new A();
-        System.out.println("-----------对象 A1-------------------");
-        printObjectTable(a1);
-        B b = new B();
-        b.b1 =1;
-        b.b2 =3;
-        System.out.println("-----------对象 B-------------------");
-        printObjectTable(b);
-        B[] b_arr = new B[3];
-        b_arr[0] = new B();
-        b_arr[1] = new B();
-        b_arr[2] = new B();
-        System.out.println("-----------对象 B[]-------------------");
-        printObjectTable(b_arr);
-        C c = new C();
-        c.a =a;
-        c.b =b;
-        System.out.println("-----------对象 C-------------------");
+//        A a = new A();
+//        System.out.println("-----------对象 A-------------------");
+//        printObjectTable(a);
+//        A a1 = new A();
+//        System.out.println("-----------对象 A1-------------------");
+//        printObjectTable(a1);
+//        B b = new B();
+//        b.b1 =1;
+//        b.b2 =3;
+//        System.out.println("-----------对象 B-------------------");
+//        printObjectTable(b);
+//        B[] b_arr = new B[3];
+//        b_arr[0] = new B();
+//        b_arr[1] = new B();
+//        b_arr[2] = new B();
+//        System.out.println("-----------对象 B[]-------------------");
+//        printObjectTable(b_arr);
+//        C c = new C();
+//        c.a =a;
+//        c.b =b;
+//        System.out.println("-----------对象 C-------------------");
+//
+//        printObjectTable(c);
+//
+        Son son = new Son();
+        System.out.println("-----------对象 Son-------------------");
 
-        printObjectTable(c);
+        printObjectTable(son);
+
     }
 
     static void printObjectTable(Object o){
@@ -72,6 +78,13 @@ public class ObjectTableDemo {
     static class C{
         A a ;
         B b;
+    }
+
+    static class Parent{
+        String name ="P11";
+    }
+    static class Son extends Parent{
+        String name ="Son1";
     }
 
 }
