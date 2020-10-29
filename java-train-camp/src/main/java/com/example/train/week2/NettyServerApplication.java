@@ -1,4 +1,4 @@
-package com.example.train.week2.netty.server;
+package com.example.train.week2;
 
 
 public class NettyServerApplication {

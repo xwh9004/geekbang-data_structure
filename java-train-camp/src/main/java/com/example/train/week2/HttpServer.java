@@ -1,4 +1,4 @@
-package com.example.train.week2.netty.server;
+package com.example.train.week2;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -11,12 +11,10 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.util.SelfSignedCertificate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 public class HttpServer {
-    private static Logger logger = LoggerFactory.getLogger(HttpServer.class);
 
     private boolean ssl;
     private int port;
@@ -54,11 +52,12 @@ public class HttpServer {
                     .handler(new LoggingHandler(LogLevel.INFO)).childHandler(new HttpInitializer(sslCtx));
 
             Channel ch = b.bind(port).sync().channel();
-            System.out.println("开启netty http服务器，监听地址和端口为 " + (ssl ? "https" : "http") + "://127.0.0.1:" + port + '/');
+            log.debug("开启netty http服务器，监听地址和端口为 " + (ssl ? "https" : "http") + "://127.0.0.1:" + port + '/');
             ch.closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
+            log.info(" HttpServer shutdownGracefully...");
         }
     }
 }

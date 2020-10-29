@@ -1,10 +1,11 @@
-package com.example.train.week2.netty.server;
+package com.example.train.week2;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
+import io.netty.handler.codec.http.HttpServerExpectContinueHandler;
 import io.netty.handler.ssl.SslContext;
 
 public class HttpInitializer extends ChannelInitializer<SocketChannel> {
@@ -21,8 +22,9 @@ public class HttpInitializer extends ChannelInitializer<SocketChannel> {
 			p.addLast(sslCtx.newHandler(ch.alloc()));
 		}
 		p.addLast(new HttpServerCodec());
-		//p.addLast(new HttpServerExpectContinueHandler());
+		p.addLast(new HttpServerExpectContinueHandler());
 		p.addLast(new HttpObjectAggregator(1024 * 1024));
+		p.addLast(new HttpConnectHandler());
 		p.addLast(new HttpHandler());
 	}
 }
