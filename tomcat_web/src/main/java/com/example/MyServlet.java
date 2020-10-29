@@ -22,7 +22,7 @@ public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("MyServlet 在处理get（）请求...");
+//        System.out.println("MyServlet 在处理get（）请求...");
         PrintWriter out = response.getWriter();
         response.setContentType("text/html;charset=utf-8");
         out.println("<strong>My Servlet!</strong><br>");
@@ -32,7 +32,7 @@ public class MyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("MyServlet 在处理post（）请求...");
+//        System.out.println("MyServlet 在处理post（）请求...");
         PrintWriter out = response.getWriter();
         response.setContentType("text/html;charset=utf-8");
         out.println("<strong>My Servlet!</strong><br>");
