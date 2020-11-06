@@ -23,12 +23,6 @@ public class EchoClientHandler  extends SimpleChannelInboundHandler<ByteBuf> {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
          ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!",
                         CharsetUtil.UTF_8));
-//        ByteBuf dataBuffer = Unpooled.buffer(256);
-//        ByteBuf buf = Unpooled.buffer();
-//        for (int i = 1; i < 10; i++) {
-//            buf.writeInt(i * (-1));
-//        }
-//        ctx.writeAndFlush(buf);
     }
 
     /**
@@ -42,10 +36,7 @@ public class EchoClientHandler  extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
         log.info("channelRead0");
-//        while(in.isReadable()){
-//            int i =in.readInt();
-//            System.out.println(i);
-//        }
+
         System.out.println(
                 "Client received: " + in.toString(CharsetUtil.UTF_8));
     }
