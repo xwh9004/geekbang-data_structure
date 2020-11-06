@@ -1,4 +1,4 @@
-package com.example.train.week2.server.echo;
+package com.example.train.week2.coder;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -23,21 +23,19 @@ public class AbsIntegerEncoder extends ByteToMessageCodec<ByteBuf> {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, ByteBuf msg, ByteBuf out) throws Exception {
-        log.info("AbsIntegerEncoder decode");
-        while (msg.readableBytes() >= 4) {
-            int value = Math.abs(msg.readInt());
-            out.writerIndex(value);
-        }
+        log.info("AbsIntegerEncoder encode start...");
+         out.writeBytes(msg);
+        log.info("AbsIntegerEncoder encode end...");
     }
 
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-        log.info("AbsIntegerEncoder decode List start");
+        log.info("AbsIntegerEncoder decode List start...");
         while (in.readableBytes() >= 4) {
             int value = Math.abs(in.readInt());
             out.add(value);
         }
-        log.info("AbsIntegerEncoder decode List end");
+        log.info("AbsIntegerEncoder decode List end out.size={}",out.size());
     }
 }
