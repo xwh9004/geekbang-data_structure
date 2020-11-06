@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class APIVersionController {
 
 
-//    @GetMapping( value = {"/api/user","/api/users"} )
+//    @GetMapping( value = {"/com.example.gateway/user","/com.example.gateway/users"} )
 //    @APIVersion( "v4" )
 //    public int right4() {
 //        return 4;

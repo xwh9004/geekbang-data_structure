@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>design_pattern</artifactId>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.netbeans.external</groupId>
