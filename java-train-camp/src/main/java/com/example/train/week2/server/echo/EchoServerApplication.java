@@ -7,7 +7,7 @@ package com.example.train.week2.server.echo;
  *
  * @author created by Jesse Hsu at 9:18 on 2020/11/4
  * @version V0.1
- * @classNmae EchoServerApplication
+ * @classNmae AbsServerApplication
  */
 public class EchoServerApplication {
 

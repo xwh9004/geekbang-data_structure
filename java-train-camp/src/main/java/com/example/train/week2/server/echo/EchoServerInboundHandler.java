@@ -35,10 +35,7 @@ public class EchoServerInboundHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("Server Integer! " );
          ByteBuf in = (ByteBuf) msg;
-//        Integer in = (Integer) msg;
-//        log.info("Server received: " +in);
         log.info("Server received: " + in.toString(CharsetUtil.UTF_8));
         ctx.writeAndFlush(in);
     }
@@ -58,11 +55,10 @@ public class EchoServerInboundHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-
+        log.info("Server channelReadComplete! " );
         ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
                 .addListener(ChannelFutureListener.CLOSE);
-//        ctx.channel().close();
-        log.info("Server channelReadComplete! " );
+
     }
 
     @Override
