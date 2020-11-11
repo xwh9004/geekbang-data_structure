@@ -27,7 +27,8 @@ public class AbsIntegerDecoder extends ByteToMessageDecoder {
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
         log.info("AbsIntegerCoder decode List start...");
         if (in.readableBytes() >= 4) {
-            out.add(in.readInt());
+            int value = Math.abs(in.readInt());
+            out.add(value);
         }
         log.info("AbsIntegerCoder decode List end out.size={}",out.size());
     }

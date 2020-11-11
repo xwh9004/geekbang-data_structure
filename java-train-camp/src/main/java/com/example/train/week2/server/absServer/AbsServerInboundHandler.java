@@ -33,12 +33,13 @@ public class AbsServerInboundHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("Server channelRead: " + msg.toString());
+
         ByteBuf buff = Unpooled.buffer();
         if(msg instanceof Integer){
             Integer value =(Integer)msg;
             buff.writeInt(value.intValue());
-            ctx.write(buff);
+            ctx.writeAndFlush(buff);
+            log.info("absServer send "+ value );
         }
 
 //         ByteBuf in = (ByteBuf) msg;

@@ -1,7 +1,7 @@
 package com.example.train.week2.server.absServer;
 
+import com.example.train.week2.coder.AbsIntegerCoder;
 import com.example.train.week2.coder.AbsIntegerDecoder;
-import com.example.train.week2.server.echo.EchoServerInboundHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -30,7 +30,7 @@ public class AbsServer {
     }
 
     public void start() throws Exception {
-        final EchoServerInboundHandler serverHandler = new EchoServerInboundHandler();
+        final AbsServerInboundHandler serverHandler = new AbsServerInboundHandler();
         EventLoopGroup group = new NioEventLoopGroup();
 
         try {
@@ -45,7 +45,7 @@ public class AbsServer {
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
                             ch.pipeline().addLast(new AbsIntegerDecoder());
-//                            ch.pipeline().addLast(new AbsIntegerCoder());
+                            ch.pipeline().addLast(new AbsIntegerCoder());
                             ch.pipeline().addLast(serverHandler);
 
                         }

@@ -1,6 +1,5 @@
 package com.example.train.week2.client.absClient;
 
-import com.example.train.week2.client.echo.EchoClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -44,7 +43,7 @@ public class AbsClient {
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
                             ch.pipeline().addLast(
-                                    new EchoClientHandler());
+                                    new AbsClientHandler());
                         }
                     });
             ChannelFuture f = b.connect().sync();

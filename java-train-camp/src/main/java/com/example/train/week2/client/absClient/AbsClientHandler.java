@@ -23,7 +23,7 @@ public class AbsClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
         ByteBuf buf = Unpooled.buffer();
         for (int i = 1; i < 10; i++) {
-            buf.writeByte(i * (-1));
+            buf.writeInt(i * (-1));
         }
         ctx.writeAndFlush(buf);
     }
@@ -58,7 +58,7 @@ public class AbsClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
            int value = msg.readInt();
            received.append(value);
         }
-        log.info("received value = {}",received.toString());
+        log.info("absClient received value = {}",received.toString());
     }
 
     @Override

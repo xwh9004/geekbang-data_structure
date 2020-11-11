@@ -1,7 +1,5 @@
 package com.example.train.week2.client.absClient;
 
-import com.example.train.week2.client.echo.EchoClient;
-
 /**
  * <p><b>Description:</b>
  * TODO
@@ -24,6 +22,6 @@ public class AbsClientApplication {
 //        int port = Integer.parseInt(args[1]);
         String host="localhost";
         int port = 8080;
-        new EchoClient(host, port).start();
+        new AbsClient(host, port).start();
     }
 }

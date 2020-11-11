@@ -1,7 +1,5 @@
 package com.example.train.week2.server.absServer;
 
-import com.example.train.week2.server.echo.EchoServer;
-
 /**
  * <p><b>Description:</b>
  * TODO
@@ -21,6 +19,6 @@ public class AbsServerApplication {
 //        }
 //        int port = Integer.parseInt(args[0]);
         int port = 8080;
-        new EchoServer(port).start();
+        new AbsServer(port).start();
     }
 }
