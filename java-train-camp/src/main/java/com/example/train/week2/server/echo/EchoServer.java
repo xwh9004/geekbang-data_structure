@@ -43,7 +43,7 @@ public class EchoServer {
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
-//                            ch.pipeline().addLast(new AbsIntegerEncoder());
+//                            ch.pipeline().addLast(new AbsIntegerCoder());
                             ch.pipeline().addLast(serverHandler);
 
                         }

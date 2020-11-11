@@ -1,6 +1,6 @@
 package com.example.train.week2.server.absServer;
 
-import com.example.train.week2.coder.AbsIntegerEncoder;
+import com.example.train.week2.coder.AbsIntegerDecoder;
 import com.example.train.week2.server.echo.EchoServerInboundHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -44,7 +44,8 @@ public class AbsServer {
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
-                            ch.pipeline().addLast(new AbsIntegerEncoder());
+                            ch.pipeline().addLast(new AbsIntegerDecoder());
+//                            ch.pipeline().addLast(new AbsIntegerCoder());
                             ch.pipeline().addLast(serverHandler);
 
                         }

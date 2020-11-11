@@ -14,28 +14,28 @@ import java.util.List;
  *
  * @author created by Jesse Hsu at 15:54 on 2020/11/5
  * @version V0.1
- * @classNmae AbsIntegerEncoder
+ * @classNmae AbsIntegerCoder
  */
 @Slf4j
-public class AbsIntegerEncoder extends ByteToMessageCodec<ByteBuf> {
+public class AbsIntegerCoder extends ByteToMessageCodec<ByteBuf> {
 
 
 
     @Override
     protected void encode(ChannelHandlerContext ctx, ByteBuf msg, ByteBuf out) throws Exception {
-        log.info("AbsIntegerEncoder encode start...");
+        log.info("AbsIntegerCoder encode start...");
          out.writeBytes(msg);
-        log.info("AbsIntegerEncoder encode end...");
+        log.info("AbsIntegerCoder encode end...");
     }
 
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-        log.info("AbsIntegerEncoder decode List start...");
+        log.info("AbsIntegerCoder decode List start...");
         while (in.readableBytes() >= 4) {
             int value = Math.abs(in.readInt());
             out.add(value);
         }
-        log.info("AbsIntegerEncoder decode List end out.size={}",out.size());
+        log.info("AbsIntegerCoder decode List end out.size={}",out.size());
     }
 }

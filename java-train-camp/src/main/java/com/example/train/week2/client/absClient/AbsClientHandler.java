@@ -20,11 +20,10 @@ public class AbsClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-//         ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!",
-//                        CharsetUtil.UTF_8));
+
         ByteBuf buf = Unpooled.buffer();
         for (int i = 1; i < 10; i++) {
-            buf.writeInt(i * (-1));
+            buf.writeByte(i * (-1));
         }
         ctx.writeAndFlush(buf);
     }
@@ -60,8 +59,6 @@ public class AbsClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
            received.append(value);
         }
         log.info("received value = {}",received.toString());
-//        System.out.println(
-//                "Client received: " + in.toString(CharsetUtil.UTF_8));
     }
 
     @Override
