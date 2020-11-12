@@ -3,10 +3,8 @@ package com.example.train.io.server.echo;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,7 +29,7 @@ public class EchoServer {
     }
 
     public void start() throws Exception {
-        final EchoServerInboundHandler serverHandler = new EchoServerInboundHandler();
+
         EventLoopGroup group = new NioEventLoopGroup();
 
         try {
@@ -39,15 +37,7 @@ public class EchoServer {
             b.group(group)
                     .channel(NioServerSocketChannel.class)
                     .localAddress(new InetSocketAddress(port))
-                    .childHandler(new ChannelInitializer<SocketChannel>(){
-                        @Override
-                        public void initChannel(SocketChannel ch)
-                                throws Exception {
-//                            ch.pipeline().addLast(new AbsIntegerCoder());
-                            ch.pipeline().addLast(serverHandler);
-
-                        }
-                    });
+                    .childHandler(new EchoServerChannelInitializer());
             ChannelFuture f = b.bind().sync();
             log.info("开启netty http服务器，监听地址和端口为 http://127.0.0.1:" + port + '/');
             f.channel().closeFuture().addListener(new ChannelFutureListener() {

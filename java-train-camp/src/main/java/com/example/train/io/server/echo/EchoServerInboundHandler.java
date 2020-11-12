@@ -37,6 +37,7 @@ public class EchoServerInboundHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
          ByteBuf in = (ByteBuf) msg;
         log.info("Server received: " + in.toString(CharsetUtil.UTF_8));
+        Thread.sleep(6000);
         ctx.writeAndFlush(in);
     }
 
@@ -44,6 +45,7 @@ public class EchoServerInboundHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         super.channelRegistered(ctx);
+
         log.info("Server channelRegistered! " );
     }
 
@@ -56,8 +58,8 @@ public class EchoServerInboundHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         log.info("Server channelReadComplete! " );
-        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
-                .addListener(ChannelFutureListener.CLOSE);
+
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
 
     }
 

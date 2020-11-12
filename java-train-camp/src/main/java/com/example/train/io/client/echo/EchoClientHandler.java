@@ -21,6 +21,7 @@ public class EchoClientHandler  extends SimpleChannelInboundHandler<ByteBuf> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        Thread.sleep(20000);
          ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!",
                         CharsetUtil.UTF_8));
     }
@@ -50,5 +51,11 @@ public class EchoClientHandler  extends SimpleChannelInboundHandler<ByteBuf> {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         ctx.close();
+    }
+
+    @Override
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+        log.error("userEventTriggered...");
+        super.userEventTriggered(ctx, evt);
     }
 }

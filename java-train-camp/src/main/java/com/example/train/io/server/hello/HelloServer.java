@@ -45,8 +45,8 @@ public class HelloServer {
                     .option(ChannelOption.SO_REUSEADDR, true)
                     .option(ChannelOption.SO_RCVBUF, 32 * 1024)
                     .option(ChannelOption.SO_SNDBUF, 32 * 1024)
-                    .option(EpollChannelOption.SO_REUSEPORT, true);
-//                    .childOption(ChannelOption.SO_KEEPALIVE, true);
+                    .option(EpollChannelOption.SO_REUSEPORT, true)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true);
             //.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
 
             b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
