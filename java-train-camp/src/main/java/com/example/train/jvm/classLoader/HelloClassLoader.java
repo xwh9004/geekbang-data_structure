@@ -1,4 +1,4 @@
-package com.example.train.week1;
+package com.example.train.jvm.classLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,6 +49,7 @@ public class HelloClassLoader extends ClassLoader{
         int len = 0;
         try {
             URL url = getResource(name+".xlass");
+
             File file = new File(url.getFile());
             FileInputStream in = new FileInputStream(file);
             byte[] buffer = new byte[1024];
@@ -66,4 +67,8 @@ public class HelloClassLoader extends ClassLoader{
         }
         return defineClass(name,bytes,0,bytes.length);
     }
+
+
+
+
 }
