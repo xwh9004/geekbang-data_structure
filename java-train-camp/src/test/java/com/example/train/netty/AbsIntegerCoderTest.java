@@ -1,6 +1,6 @@
 package com.example.train.netty;
 
-import com.example.train.week2.server.echo.AbsIntegerEncoder;
+import com.example.train.io.coder.AbsIntegerCoder;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.embedded.EmbeddedChannel;
@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author created by Jesse Hsu at 15:53 on 2020/11/5
  * @version V0.1
- * @classNmae AbsIntegerEncoderTest
+ * @classNmae AbsIntegerCoderTest
  */
-public class AbsIntegerEncoderTest {
+public class AbsIntegerCoderTest {
 
     @Test
     public void testEncoded() {
@@ -27,7 +27,7 @@ public class AbsIntegerEncoderTest {
             buf.writeInt(i * (-1));
         }
         EmbeddedChannel channel = new EmbeddedChannel(
-                new AbsIntegerEncoder());
+                new AbsIntegerCoder());
         assertTrue(channel.writeOutbound(buf));
         assertTrue(channel.finish());
       // read bytes
