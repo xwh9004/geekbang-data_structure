@@ -18,7 +18,7 @@ import java.net.InetSocketAddress;
  *
  * @author created by Jesse Hsu at 9:26 on 2020/11/4
  * @version V0.1
- * @classNmae EchoClient
+ * @classNmae FileClient
  */
 @Slf4j
 public class AbsClient {
@@ -50,7 +50,7 @@ public class AbsClient {
             f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();
-            log.info("EchoClient shutdownGracefully!!");
+            log.info("FileClient shutdownGracefully!!");
         }
     }
 }

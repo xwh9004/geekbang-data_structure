@@ -16,7 +16,7 @@ import java.net.InetSocketAddress;
  *
  * @author created by Jesse Hsu at 9:26 on 2020/11/4
  * @version V0.1
- * @classNmae EchoClient
+ * @classNmae FileUploadClient
  */
 @Slf4j
 public class EchoClient {
@@ -41,7 +41,7 @@ public class EchoClient {
             f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();
-            log.info("EchoClient shutdownGracefully!!");
+            log.info("FileUploadClient shutdownGracefully!!");
         }
     }
 }

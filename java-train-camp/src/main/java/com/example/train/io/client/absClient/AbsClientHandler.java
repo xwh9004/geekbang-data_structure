@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  *
  * @author created by Jesse Hsu at 9:27 on 2020/11/4
  * @version V0.1
- * @classNmae EchoClientHandler
+ * @classNmae FileClientHandler
  */
 @Slf4j
 public class AbsClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
@@ -31,14 +31,14 @@ public class AbsClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("EchoClientHandler channelRead ...");
+        log.info("FileClientHandler channelRead ...");
         super.channelRead(ctx, msg);
     }
 
     @Override
     public boolean acceptInboundMessage(Object msg) throws Exception {
        boolean acceptable = super.acceptInboundMessage(msg);
-        log.info("EchoClientHandler acceptInboundMessage acceptable={}",acceptable);
+        log.info("FileClientHandler acceptInboundMessage acceptable={}",acceptable);
         return super.acceptInboundMessage(msg);
     }
 
@@ -64,7 +64,7 @@ public class AbsClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         super.channelReadComplete(ctx);
-        log.info("EchoClientHandler channelReadComplete");
+        log.info("FileClientHandler channelReadComplete");
     }
 
     @Override

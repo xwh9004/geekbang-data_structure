@@ -7,14 +7,14 @@ package com.example.train.io.client.absClient;
  *
  * @author created by Jesse Hsu at 9:26 on 2020/11/4
  * @version V0.1
- * @classNmae EchoClientApplication
+ * @classNmae FileClientApplication
  */
 public class AbsClientApplication {
 
     public static void main(String[] args) throws InterruptedException {
 //        if (args.length != 2) {
 //            System.err.println(
-//                    "Usage: " + EchoClient.class.getSimpleName() +
+//                    "Usage: " + FileClient.class.getSimpleName() +
 //                            " <host> <port>");
 //            return;
 //        }
