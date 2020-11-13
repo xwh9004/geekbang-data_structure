@@ -1,11 +1,14 @@
 package com.example.train.io.client.fileClient;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.codec.http.*;
+import io.netty.handler.codec.http.multipart.*;
 import io.netty.util.CharsetUtil;
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.File;
 
 /**
  * <p><b>Description:</b>
@@ -22,17 +25,50 @@ public class FileClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
 
-         ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!",
-                        CharsetUtil.UTF_8));
+
+        // Prepare the HTTP request
+        HttpRequest fullHttpRequest = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.POST,"/");
+
+        HttpDataFactory dataFactory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
+
+
+        DiskFileUpload.deleteOnExitTemporaryFile = true; // should delete file on exit (in normal exit)
+        DiskFileUpload.baseDirectory = null; // system temp directory
+        DiskAttribute.deleteOnExitTemporaryFile = true; // should delete file on exit (in normal exit)
+        DiskAttribute.baseDirectory = null; // system temp directory
+        //multipart true 多文件传输
+        HttpPostRequestEncoder bodyRequestEncoder
+                =new HttpPostRequestEncoder(dataFactory, fullHttpRequest, false); // true => multipart
+       //prepare httpHeader
+        HttpHeaders headers = fullHttpRequest.headers();
+//        headers.set(HttpHeaderNames.HOST, host);
+        headers.set(HttpHeaderNames.CONNECTION, HttpHeaderValues.CLOSE);
+        headers.set(HttpHeaderNames.ACCEPT_ENCODING, HttpHeaderValues.GZIP + "," + HttpHeaderValues.DEFLATE);
+
+        headers.set(HttpHeaderNames.ACCEPT_CHARSET, "ISO-8859-1,utf-8;q=0.7,*;q=0.7");
+        headers.set(HttpHeaderNames.ACCEPT_LANGUAGE, "fr");
+//        headers.set(HttpHeaderNames.REFERER, uriSimple.toString());
+//        headers.set(HttpHeaderNames.USER_AGENT, "Netty Simple Http Client side");
+        headers.set(HttpHeaderNames.ACCEPT, "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+
+        bodyRequestEncoder.addBodyAttribute("getform", "POST");
+        bodyRequestEncoder.addBodyAttribute("info", "first value");
+
+        File file =null;
+        bodyRequestEncoder.addBodyFileUpload("myfile", file, "application/x-zip-compressed", false);
+
+       // finalize request
+        fullHttpRequest = bodyRequestEncoder.finalizeRequest();
+        ctx.writeAndFlush(fullHttpRequest);
     }
 
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
-        log.info("channelRead0");
+        log.info("FileClient channelRead0");
 
         System.out.println(
-                "Client received: " + in.toString(CharsetUtil.UTF_8));
+                "FileClient received: " + in.toString(CharsetUtil.UTF_8));
     }
 
     @Override
@@ -48,7 +84,7 @@ public class FileClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        log.error("userEventTriggered...");
+        log.error("FileClient userEventTriggered...");
         super.userEventTriggered(ctx, evt);
     }
 }

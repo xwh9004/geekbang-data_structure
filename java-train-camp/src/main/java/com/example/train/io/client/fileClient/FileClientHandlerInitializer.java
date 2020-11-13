@@ -2,6 +2,7 @@ package com.example.train.io.client.fileClient;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
+import io.netty.handler.codec.http.HttpClientCodec;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -19,7 +20,9 @@ public class FileClientHandlerInitializer extends ChannelInitializer {
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        ch.pipeline().addLast(  new FileClientHandler());
+        ch.pipeline()
+                .addLast(new HttpClientCodec())
+                .addLast(new FileClientHandler());
 
 
     }
