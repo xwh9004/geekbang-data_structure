@@ -1,4 +1,4 @@
-package com.example.train.io.server.fileServer;
+package com.example.train.io.server.httpFileServer;
 
 import com.example.train.io.server.echo.HeartbeatHandler;
 import io.netty.channel.Channel;

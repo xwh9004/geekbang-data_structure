@@ -1,4 +1,4 @@
-package com.example.train.io.server.fileServer;
+package com.example.train.io.server.httpFileServer;
 
 /**
  * <p><b>Description:</b>
