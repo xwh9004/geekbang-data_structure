@@ -1,4 +1,4 @@
-package com.example.train.io.client.fileClient;
+package com.example.train.io.client.httpFileClient;
 
 /**
  * <p><b>Description:</b>
