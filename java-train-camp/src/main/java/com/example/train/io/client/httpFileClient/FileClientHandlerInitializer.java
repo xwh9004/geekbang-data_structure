@@ -1,7 +1,8 @@
-package com.example.train.io.client.echo;
+package com.example.train.io.client.httpFileClient;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
+import io.netty.handler.codec.http.HttpClientCodec;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -11,15 +12,17 @@ import lombok.extern.slf4j.Slf4j;
  *
  * @author created by Jesse Hsu at 17:31 on 2020/11/12
  * @version V0.1
- * @classNmae EchoClientHandlerInitializer
+ * @classNmae FileClientHandlerInitializer
  */
 @Slf4j
-public class EchoClientHandlerInitializer extends ChannelInitializer {
+public class FileClientHandlerInitializer extends ChannelInitializer {
 
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        ch.pipeline().addLast(  new EchoClientHandler());
+        ch.pipeline()
+                .addLast(new HttpClientCodec())
+                .addLast(new FileClientHandler());
 
 
     }

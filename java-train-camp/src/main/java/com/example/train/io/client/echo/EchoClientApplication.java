@@ -14,7 +14,7 @@ public class EchoClientApplication {
     public static void main(String[] args) throws InterruptedException {
 //        if (args.length != 2) {
 //            System.err.println(
-//                    "Usage: " + EchoClient.class.getSimpleName() +
+//                    "Usage: " + FileUploadClient.class.getSimpleName() +
 //                            " <host> <port>");
 //            return;
 //        }

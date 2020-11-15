@@ -1,4 +1,4 @@
-package com.example.train.io.client.absClient;
+package com.example.train.io.client.fileUpload;
 
 /**
  * <p><b>Description:</b>
@@ -7,21 +7,21 @@ package com.example.train.io.client.absClient;
  *
  * @author created by Jesse Hsu at 9:26 on 2020/11/4
  * @version V0.1
- * @classNmae FileClientApplication
+ * @classNmae EchoClientApplication
  */
-public class AbsClientApplication {
+public class FileUploadClientApplication {
 
     public static void main(String[] args) throws InterruptedException {
 //        if (args.length != 2) {
 //            System.err.println(
-//                    "Usage: " + FileClient.class.getSimpleName() +
+//                    "Usage: " + FileUploadClient.class.getSimpleName() +
 //                            " <host> <port>");
 //            return;
 //        }
 //        String host = args[0];
 //        int port = Integer.parseInt(args[1]);
         String host="localhost";
-        int port = 8080;
-        new AbsClient(host, port).start();
+        int port = 8081;
+        new FileUploadClient(host, port).start();
     }
 }

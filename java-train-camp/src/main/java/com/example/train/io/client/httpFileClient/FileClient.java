@@ -1,4 +1,4 @@
-package com.example.train.io.client.echo;
+package com.example.train.io.client.httpFileClient;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -16,15 +16,15 @@ import java.net.InetSocketAddress;
  *
  * @author created by Jesse Hsu at 9:26 on 2020/11/4
  * @version V0.1
- * @classNmae FileUploadClient
+ * @classNmae FileClient
  */
 @Slf4j
-public class EchoClient {
+public class FileClient {
 
     private final String host;
     private final int port;
 
-    public EchoClient(String host, int port) {
+    public FileClient(String host, int port) {
         this.host = host;
         this.port = port;
     }
@@ -36,12 +36,12 @@ public class EchoClient {
             b.group(group)
                     .channel(NioSocketChannel.class)
                     .remoteAddress(new InetSocketAddress(host, port))
-                    .handler(new EchoClientHandlerInitializer());
+                    .handler(new FileClientHandlerInitializer());
             ChannelFuture f = b.connect().sync();
             f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();
-            log.info("FileUploadClient shutdownGracefully!!");
+            log.info("FileClient shutdownGracefully!!");
         }
     }
 }

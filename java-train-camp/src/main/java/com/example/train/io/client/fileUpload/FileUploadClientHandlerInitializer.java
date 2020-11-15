@@ -1,4 +1,4 @@
-package com.example.train.io.client.echo;
+package com.example.train.io.client.fileUpload;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -14,12 +14,12 @@ import lombok.extern.slf4j.Slf4j;
  * @classNmae EchoClientHandlerInitializer
  */
 @Slf4j
-public class EchoClientHandlerInitializer extends ChannelInitializer {
+public class FileUploadClientHandlerInitializer extends ChannelInitializer {
 
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-        ch.pipeline().addLast(  new EchoClientHandler());
+        ch.pipeline().addLast(  new FileUploadClientHandler());
 
 
     }

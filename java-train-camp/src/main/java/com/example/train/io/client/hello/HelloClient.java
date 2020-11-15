@@ -61,7 +61,7 @@ public class HelloClient {
 
         } finally {
             group.shutdownGracefully().sync();
-            log.info("EchoClient shutdownGracefully!!");
+            log.info("FileClient shutdownGracefully!!");
         }
     }
 
